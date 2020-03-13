@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+    - name: "Add repository for PHP 7.2."
+      apt_repository: 
+        repo="ppa:ondrej/php" 
+        update_cache=yes
+
+  roles:
+    - role: geerlingguy.php
+      php_version: "7.2"
+      php_packages:
+        - php7.2-common
+        - php7.2-cli
+        - php7.2-dev
+        - # snip
+      php_date_timezone: "Asia/Kolkata"
